@@ -16,7 +16,7 @@ cask "human-ram" do
 
   postflight_steps do
     run "/usr/bin/xattr",
-        args: ["-dr", "com.apple.quarantine", "#{appdir}/Human RAM (Shareable).app"]
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/Human RAM (Shareable).app"]
   end
 
   caveats <<~EOS
