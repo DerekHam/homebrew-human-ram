@@ -1,5 +1,5 @@
 cask "human-ram" do
-  version "0.3.0"
+  version "1.0.0"
   # Human RAM is ad-hoc signed (no paid Apple Developer certificate), and each
   # release is built fresh, so a pinned checksum would break installs whenever
   # someone rebuilds. Content is delivered over HTTPS from the project's own
@@ -12,17 +12,17 @@ cask "human-ram" do
   desc "Menu-bar app that treats your attention like computer memory"
   homepage "https://github.com/DerekHam/Human-RAM"
 
-  app "Human RAM (Shareable).app"
+  app "Human RAM.app"
 
   postflight_steps do
     run "/usr/bin/xattr",
-        args: ["-dr", "com.apple.quarantine", "{{appdir}}/Human RAM (Shareable).app"]
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/Human RAM.app"]
   end
 
   caveats <<~EOS
     Human RAM is not notarized by Apple. Homebrew clears the download
     quarantine flag for you, so it opens without the "unidentified developer"
     warning. If you ever move the app by hand, run:
-      xattr -dr com.apple.quarantine "/Applications/Human RAM (Shareable).app"
+      xattr -dr com.apple.quarantine "/Applications/Human RAM.app"
   EOS
 end
